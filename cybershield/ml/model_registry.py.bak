@@ -1,0 +1,24 @@
+from pathlib import Path
+import joblib
+from .features import text_features, url_features, network_features
+
+class ModelRegistry:
+    def __init__(self, root='models'):
+        self.root=Path(root); self.models={}
+    def load(self):
+        for name in ('phishing_url','scam_text','network'):
+            p=self.root/f'{name}.joblib'
+            if p.exists():
+                try:self.models[name]=joblib.load(p)
+                except Exception: pass
+        return self
+    def _predict(self,name,X):
+        m=self.models.get(name)
+        if m is None:return None
+        pred=int(m.predict(X)[0]); conf=float(max(m.predict_proba(X)[0])) if hasattr(m,'predict_proba') else .5
+        return pred,conf
+    def phishing(self,url): return self._predict('phishing_url',url_features([url]))
+    def scam(self,text): return self._predict('scam_text',[text])
+    def network(self,event):
+        import pandas as pd
+        return self._predict('network',network_features(pd.DataFrame([event])))

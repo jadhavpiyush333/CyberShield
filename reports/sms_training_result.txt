@@ -1,0 +1,9 @@
+Dataset: UCI SMS Spam Collection
+Model: models/scam_text.joblib
+Evaluation: 20% holdout reported by training script
+Accuracy: 0.98 (rounded)
+Class 0 precision/recall/F1: 0.99/0.99/0.99
+Class 1 precision/recall/F1: 0.94/0.94/0.94
+Macro F1: 0.97
+Weighted F1: 0.98
+Test samples: 1115

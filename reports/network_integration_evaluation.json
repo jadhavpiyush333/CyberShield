@@ -1,0 +1,21 @@
+{
+  "dataset": "data/external/unsw-nb15/corrected/UNSW_NB15_testing-set.csv",
+  "evaluation_type": "integrated_model_registry_inference",
+  "model_version": "unsw-nb15-logreg-optimized-1.0",
+  "classification_threshold": 0.61,
+  "samples": 82332,
+  "heuristic_fallbacks": 0,
+  "accuracy": 0.868228635281543,
+  "precision_attack": 0.8745139778873515,
+  "recall_attack": 0.8881143563045972,
+  "f1_attack": 0.8812616970745001,
+  "false_positive_rate": 0.15613513513513513,
+  "false_negative_rate": 0.11188564369540281,
+  "confusion_matrix": {
+    "tn": 31223,
+    "fp": 5777,
+    "fn": 5072,
+    "tp": 40260
+  },
+  "roc_auc": 0.9558880911044283
+}

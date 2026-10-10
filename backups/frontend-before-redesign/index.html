@@ -1,0 +1,81 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CyberShield AI</title><link rel="stylesheet" href="/static/app.css"></head><body>
+<div class="app"><aside><div class="brand"><span>🛡</span><div><b>CyberShield</b><small>AI Security Center</small></div></div><nav><button class="nav active" data-page="dashboard">Overview</button><button class="nav" data-page="url">URL Scanner</button><button class="nav" data-page="sms">SMS Scanner</button><button class="nav" data-page="network">Network IDS</button><button class="nav" data-page="malware">Malware</button><button class="nav" data-page="learning">Learning</button></nav><div class="sidefoot">● Offline-capable<br><span>Local inference architecture</span></div></aside>
+<main><header><div><div class="eyebrow">SECURITY OPERATIONS</div><h1 id="title">Security Overview</h1></div><div class="status"><i></i> SYSTEM ONLINE</div></header>
+<section id="dashboard" class="page active"><div class="hero"><div><p class="eyebrow">ON-DEVICE AI</p><h2>Protect. Explain. Learn.</h2><p>CyberShield combines specialized detection models, threat evidence and a local AI advisor.</p></div><div class="score"><strong>—</strong><span>Security posture</span></div></div><div class="cards"><div class="card"><span>🔗 Phishing</span><b id="phishCount">0</b><small>events today</small></div><div class="card"><span>💬 Scam SMS</span><b>0</b><small>events today</small></div><div class="card"><span>🌐 Network</span><b>0</b><small>events today</small></div><div class="card"><span>🧠 Learning</span><b id="pending">0</b><small>pending review</small></div></div><div class="panel"><h3>How the AI works</h3><div class="pipeline"><span>Input</span><em>→</em><span>ML Detection</span><em>→</em><span>Risk + Evidence</span><em>→</em><span>Llama Advisor</span><em>→</em><span>Action</span></div></div></section>
+<section id="url" class="page"><div class="panel"><h2>URL Threat Scanner</h2><p>Analyse a URL locally and capture verified feedback for controlled continuous learning.</p><textarea id="urlInput" placeholder="https://example.com/login"></textarea><button class="primary" onclick="scan('url')">Analyse URL</button><div id="urlOut" class="result"></div></div></section>
+<section id="sms" class="page"><div class="panel"><h2>SMS / Scam Scanner</h2><p>Classify suspicious messages and surface social-engineering evidence.</p><textarea id="smsInput" placeholder="Paste the suspicious SMS here..."></textarea><button class="primary" onclick="scan('message')">Analyse Message</button><div id="smsOut" class="result"></div></div></section>
+<section id="network" class="page"><div class="panel"><h2>Network Intrusion Detection</h2><p>Submit flow/event telemetry. Use real capture-to-feature preprocessing for production data.</p><textarea id="networkInput" placeholder='{"event_type":"brute_force","failed_logins":30}'></textarea><button class="primary" onclick="scan('network')">Analyse Network Event</button><div id="networkOut" class="result"></div></div></section>
+<section id="malware" class="page"><div class="panel"><h2>Malware Behaviour</h2><p>Defensive telemetry analysis. Unknown binaries are never executed by the application.</p><textarea id="malwareInput" placeholder='{"process":"powershell","behaviour":"encoded_command persistence"}'></textarea><button class="primary" onclick="scan('behavior')">Analyse Behaviour</button><div id="malwareOut" class="result"></div></div></section>
+
+<section id="learning" class="page">
+  <div class="panel">
+    <h2>Controlled Continuous Learning</h2>
+    <p>
+      Review submitted security reports before including them
+      in verified training data. Reviews do not automatically
+      retrain or replace production models.
+    </p>
+
+    <div class="cards learning-cards">
+      <div class="card">
+        <span>Pending Review</span>
+        <b id="lPending">0</b>
+      </div>
+      <div class="card">
+        <span>Confirmed Threats</span>
+        <b id="lConfirmed">0</b>
+      </div>
+      <div class="card">
+        <span>False Positives</span>
+        <b id="lFP">0</b>
+      </div>
+      <div class="card">
+        <span>Rejected</span>
+        <b id="lRejected">0</b>
+      </div>
+    </div>
+
+    <div class="learning-toolbar">
+      <h3>Feedback Review Queue</h3>
+      <button
+        class="primary"
+        type="button"
+        onclick="refreshLearning()"
+      >
+        Refresh Queue
+      </button>
+    </div>
+
+    <div
+      id="learningMessage"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+    <div id="pendingList" class="pending-list">
+      <div class="empty-state">
+        <p>Loading pending feedback...</p>
+      </div>
+    </div>
+
+    <div class="export-row">
+      <div>
+        <h3>Verified Training Samples</h3>
+        <p>
+          Export confirmed-threat and false-positive reports
+          for controlled evaluation and future model training.
+        </p>
+      </div>
+
+      <button
+        class="primary"
+        type="button"
+        onclick="exportVerified()"
+      >
+        Export Verified Samples
+      </button>
+    </div>
+  </div>
+</section>
+
+</main></div><script src="/static/app.js"></script></body></html>

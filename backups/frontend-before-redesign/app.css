@@ -1,0 +1,180 @@
+:root{font-family:Inter,system-ui,sans-serif;color:#eaf0f6;background:#080d13}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#132b39 0,#080d13 38%);min-height:100vh}.app{display:flex;min-height:100vh}aside{width:245px;border-right:1px solid #1d2b36;background:#091017cc;backdrop-filter:blur(18px);padding:24px 16px;position:fixed;inset:0 auto 0 0}.brand{display:flex;gap:12px;align-items:center;margin-bottom:32px}.brand span{font-size:28px}.brand b{display:block;font-size:18px}.brand small,.sidefoot span{color:#7f919f;font-size:11px}.nav{display:block;width:100%;text-align:left;background:none;border:0;color:#91a1ad;padding:13px 14px;border-radius:12px;margin:4px 0;cursor:pointer;transition:.2s}.nav:hover,.nav.active{background:#102331;color:#fff;transform:translateX(3px)}.sidefoot{position:absolute;bottom:22px;color:#68e0a1;font-size:12px;line-height:1.8}main{margin-left:245px;width:calc(100% - 245px);padding:28px 5vw 60px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.eyebrow{font-size:10px;letter-spacing:.16em;color:#6e9bb0}h1{margin:5px 0;font-size:30px}h2{font-size:27px;margin:6px 0 10px}h3{margin-top:0}.status{font-size:11px;color:#75e1a5;border:1px solid #224533;padding:9px 12px;border-radius:999px}.status i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#62e39a;margin-right:6px;box-shadow:0 0 14px #62e39a}.page{display:none;animation:rise .3s ease}.page.active{display:block}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.hero,.panel,.card{border:1px solid #1c2b35;background:#0d151dce;box-shadow:0 18px 50px #0004;border-radius:20px}.hero{padding:30px;display:flex;justify-content:space-between;align-items:center}.hero p{color:#91a1ad;max-width:650px}.score{width:145px;height:145px;border:1px solid #2c5867;border-radius:50%;display:grid;place-items:center;text-align:center;background:#0c222b}.score strong{font-size:38px}.score span{font-size:11px;color:#8ba2ad;margin-top:-30px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.card{padding:20px}.card span,.card small{display:block;color:#8294a0;font-size:12px}.card b{display:block;font-size:30px;margin:10px 0}.panel{padding:24px;margin-top:18px}.pipeline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.pipeline span{padding:12px 14px;background:#10212b;border:1px solid #203946;border-radius:12px}.pipeline em{color:#5f8495;font-style:normal}textarea{width:100%;min-height:150px;background:#071016;color:#dbe7ee;border:1px solid #243843;border-radius:14px;padding:16px;resize:vertical;margin:14px 0;font:inherit}.primary{border:0;background:linear-gradient(135deg,#3bd39b,#2a9bd4);color:#061017;padding:12px 18px;border-radius:11px;font-weight:800;cursor:pointer;transition:.2s}.primary:hover{transform:translateY(-2px);filter:brightness(1.08)}.result{margin-top:18px}.threat{padding:18px;border-radius:15px;background:#111e26;border:1px solid #29414d}.risk{font-size:30px;font-weight:800}.evidence{color:#9fb0ba;line-height:1.7}@media(max-width:850px){aside{width:72px}.brand div,.nav{font-size:0}.nav:before{font-size:18px;content:'•'}.sidefoot{display:none}main{margin-left:72px;width:calc(100% - 72px);padding:20px}.cards{grid-template-columns:1fr 1fr}.hero{display:block}.score{margin-top:20px}}
+
+/* CyberShield learning review queue */
+
+.learning-cards {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.learning-toolbar,
+.review-heading,
+.export-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.learning-toolbar {
+  margin: 28px 0 16px;
+}
+
+.learning-toolbar h3,
+.export-row h3 {
+  margin: 0;
+}
+
+.pending-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.review-item,
+.empty-state {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #263945;
+  border-radius: 16px;
+  background: #0a131b;
+}
+
+.review-heading h3 {
+  margin: 7px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.review-id {
+  color: #79a8bc;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.pending-tag {
+  padding: 7px 11px;
+  border: 1px solid #725222;
+  border-radius: 999px;
+  background: #392b16;
+  color: #ffd58a;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.review-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin: 18px 0;
+  color: #91a1ad;
+  font-size: 12px;
+}
+
+.review-meta b {
+  color: #eaf0f6;
+}
+
+.review-item details {
+  padding-top: 14px;
+  border-top: 1px solid #1d2b36;
+  color: #b6c5ce;
+}
+
+.review-item summary {
+  cursor: pointer;
+}
+
+.review-item pre {
+  max-height: 260px;
+  overflow: auto;
+  padding: 14px;
+  border-radius: 10px;
+  background: #050b10;
+  color: #c5d8e3;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.review-actions button {
+  padding: 10px 13px;
+  border: 1px solid #30434f;
+  border-radius: 9px;
+  background: #13212b;
+  color: #eaf0f6;
+  cursor: pointer;
+}
+
+.review-actions button:hover {
+  filter: brightness(1.2);
+}
+
+.review-actions .review-verify {
+  border-color: #287653;
+  background: #123c30;
+  color: #9af0c8;
+}
+
+.review-actions .review-fp {
+  border-color: #755b2b;
+  background: #392d17;
+  color: #ffdc99;
+}
+
+.review-actions .review-reject {
+  border-color: #713543;
+  background: #3a2027;
+  color: #ffb2bd;
+}
+
+.export-row {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid #1d2b36;
+}
+
+.export-row p,
+.empty-state p {
+  color: #91a1ad;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#learningMessage {
+  margin: 10px 0;
+  color: #91c9dc;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1000px) {
+  .learning-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .learning-toolbar,
+  .export-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .review-heading {
+    align-items: flex-start;
+  }
+
+  .learning-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-actions button {
+    flex: 1 1 auto;
+  }
+}

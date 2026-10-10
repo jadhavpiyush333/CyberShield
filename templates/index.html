@@ -1,0 +1,219 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="CyberShield local-first AI security center">
+  <title>CyberShield — AI Security Center</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" data-home>
+      <span class="brand-mark">⬡</span>
+      <span class="brand-copy">
+        <strong>CyberShield</strong>
+        <small>AI SECURITY CENTER</small>
+      </span>
+    </a>
+
+    <div class="nav-label">WORKSPACE</div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav active" data-page="dashboard"><span>◈</span> Overview</button>
+      <button class="nav" data-page="url"><span>↗</span> URL Scanner</button>
+      <button class="nav" data-page="sms"><span>▤</span> SMS Scanner</button>
+      <button class="nav" data-page="network"><span>⌁</span> Network IDS</button>
+      <button class="nav" data-page="malware"><span>⌘</span> Malware Analysis</button>
+      <button class="nav" data-page="learning"><span>◎</span> Learning Center <span class="nav-pill" id="navPending">0</span></button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="local-indicator"><span></span> Local-first architecture</div>
+      <p>Data processing stays on your system where supported by the configured models.</p>
+      <small>CYBERSHIELD · PHASE 1</small>
+    </div>
+  </aside>
+
+  <main class="main-area">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Toggle navigation">☰</button>
+      <div class="page-heading">
+        <div class="eyebrow">SECURITY OPERATIONS / <span id="crumb">OVERVIEW</span></div>
+        <h1 id="title">Security Overview</h1>
+      </div>
+      <div class="topbar-right">
+        <div class="system-status"><span></span> API READY TO CHECK</div>
+        <div class="avatar">CS</div>
+      </div>
+    </header>
+
+    <section id="dashboard" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="hero-kicker"><span class="live-dot"></span> LOCAL-FIRST SECURITY</div>
+          <h2>Stay ahead of<br><span>digital threats.</span></h2>
+          <p>Inspect suspicious links, messages, network events and process behaviour with CyberShield's configured detection engine.</p>
+          <button class="primary" type="button" data-go="url">Start a security scan <span>↗</span></button>
+        </div>
+        <div class="hero-graphic" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+          <div class="shield-core"><span>⬡</span><i></i></div>
+          <span class="orbit-node node-one"></span>
+          <span class="orbit-node node-two"></span>
+          <span class="orbit-node node-three"></span>
+          <div class="graphic-caption">DEFENSIVE AI <span>•</span> LOCAL ANALYSIS</div>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div><div class="eyebrow">YOUR WORKSPACE</div><h2>Security modules</h2></div>
+        <span class="muted">Choose a module to begin</span>
+      </div>
+
+      <div class="module-grid">
+        <button class="module-card" data-go="url">
+          <span class="module-icon cyan">↗</span>
+          <span class="module-title">Phishing Detection</span>
+          <span class="module-description">Inspect URLs for suspicious characteristics.</span>
+          <span class="module-link">Open scanner <b>↗</b></span>
+        </button>
+        <button class="module-card" data-go="sms">
+          <span class="module-icon violet">▤</span>
+          <span class="module-title">SMS & Scam Analysis</span>
+          <span class="module-description">Classify suspicious text messages.</span>
+          <span class="module-link">Open scanner <b>↗</b></span>
+        </button>
+        <button class="module-card" data-go="network">
+          <span class="module-icon blue">⌁</span>
+          <span class="module-title">Network IDS</span>
+          <span class="module-description">Inspect supplied network event telemetry.</span>
+          <span class="module-link">Open scanner <b>↗</b></span>
+        </button>
+        <button class="module-card" data-go="malware">
+          <span class="module-icon amber">⌘</span>
+          <span class="module-title">Malware Behaviour</span>
+          <span class="module-description">Assess submitted process behaviour data.</span>
+          <span class="module-link">Open analyzer <b>↗</b></span>
+        </button>
+      </div>
+
+      <div class="dashboard-bottom">
+        <div class="panel">
+          <div class="panel-heading"><div><div class="eyebrow">DETECTION PIPELINE</div><h3>How CyberShield works</h3></div><span class="mini-badge">OVERVIEW</span></div>
+          <div class="pipeline">
+            <div class="pipeline-step"><span>01</span><b>Input</b><small>Submitted data</small></div>
+            <i>→</i>
+            <div class="pipeline-step"><span>02</span><b>Detection</b><small>Configured model</small></div>
+            <i>→</i>
+            <div class="pipeline-step"><span>03</span><b>Evidence</b><small>Risk assessment</small></div>
+            <i>→</i>
+            <div class="pipeline-step"><span>04</span><b>Review</b><small>Human feedback</small></div>
+          </div>
+        </div>
+        <div class="panel learning-summary">
+          <div class="eyebrow">HUMAN-IN-THE-LOOP</div>
+          <h3>Learning Center</h3>
+          <p>Review submitted scan feedback before exporting verified samples.</p>
+          <div class="summary-count"><strong id="pending">—</strong><span>Awaiting review</span></div>
+          <button class="secondary" type="button" data-go="learning">Open Learning Center ↗</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="url" class="page">
+      <div class="page-intro"><div class="eyebrow">THREAT INTELLIGENCE / 01</div><h2>URL Threat Scanner</h2><p>Submit a URL for analysis by the configured CyberShield detection engine.</p></div>
+      <div class="scanner-layout">
+        <div class="panel scanner-panel">
+          <div class="panel-heading"><div><span class="module-icon cyan">↗</span><h3>Inspect a link</h3></div><span class="mini-badge">URL ANALYSIS</span></div>
+          <label for="urlInput">URL to analyse</label>
+          <textarea id="urlInput" class="input-url" placeholder="https://example.com/login" spellcheck="false"></textarea>
+          <div class="input-hint">Submit only a URL you want the detector to assess.</div>
+          <button class="primary scan-button" type="button" onclick="scan('url')">Analyse URL <span>→</span></button>
+          <div id="urlOut" class="result" aria-live="polite"></div>
+        </div>
+        <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Analysis notes</h3><p>The result reflects the configured model and its returned evidence. Treat uncertain detections carefully and verify suspicious links through trusted channels.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Existing scan API</b><small>/api/scan/url</small></aside>
+      </div>
+    </section>
+
+    <section id="sms" class="page">
+      <div class="page-intro"><div class="eyebrow">COMMUNICATION SAFETY / 02</div><h2>SMS & Scam Scanner</h2><p>Inspect message text for potential fraud and social-engineering signals.</p></div>
+      <div class="scanner-layout">
+        <div class="panel scanner-panel">
+          <div class="panel-heading"><div><span class="module-icon violet">▤</span><h3>Inspect a message</h3></div><span class="mini-badge">TEXT ANALYSIS</span></div>
+          <label for="smsInput">Message content</label>
+          <textarea id="smsInput" placeholder="Paste the suspicious SMS here..." spellcheck="true"></textarea>
+          <div class="input-hint">Avoid including passwords, one-time codes or other secrets.</div>
+          <button class="primary scan-button" type="button" onclick="scan('message')">Analyse Message <span>→</span></button>
+          <div id="smsOut" class="result" aria-live="polite"></div>
+        </div>
+        <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Stay cautious</h3><p>Do not click unexpected links or share verification codes. A model prediction is an aid, not a guarantee that a message is safe.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Existing scan API</b><small>/api/scan/message</small></aside>
+      </div>
+    </section>
+
+    <section id="network" class="page">
+      <div class="page-intro"><div class="eyebrow">NETWORK DEFENCE / 03</div><h2>Network Intrusion Detection</h2><p>Submit structured network telemetry for analysis by the configured detection model.</p></div>
+      <div class="scanner-layout">
+        <div class="panel scanner-panel">
+          <div class="panel-heading"><div><span class="module-icon blue">⌁</span><h3>Inspect an event</h3></div><span class="mini-badge">NETWORK IDS</span></div>
+          <label for="networkInput">Network event JSON</label>
+          <textarea id="networkInput" class="code-input" placeholder='{"event_type":"brute_force","failed_logins":30}' spellcheck="false"></textarea>
+          <div class="input-hint">Enter a valid JSON object using fields supported by your backend.</div>
+          <button class="primary scan-button" type="button" onclick="scan('network')">Analyse Network Event <span>→</span></button>
+          <div id="networkOut" class="result" aria-live="polite"></div>
+        </div>
+        <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Telemetry matters</h3><p>Production network detection depends on correctly capturing and transforming network traffic into the feature format expected by the model.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Existing scan API</b><small>/api/scan/network</small></aside>
+      </div>
+    </section>
+
+    <section id="malware" class="page">
+      <div class="page-intro"><div class="eyebrow">ENDPOINT DEFENCE / 04</div><h2>Malware Behaviour</h2><p>Assess supplied process and behaviour telemetry without executing unknown binaries.</p></div>
+      <div class="scanner-layout">
+        <div class="panel scanner-panel">
+          <div class="panel-heading"><div><span class="module-icon amber">⌘</span><h3>Inspect process behaviour</h3></div><span class="mini-badge">BEHAVIOUR ANALYSIS</span></div>
+          <label for="malwareInput">Behaviour data (JSON)</label>
+          <textarea id="malwareInput" class="code-input" placeholder='{"process":"powershell","behaviour":"encoded_command persistence"}' spellcheck="false"></textarea>
+          <div class="input-hint">Supply descriptive telemetry in the format supported by your backend.</div>
+          <button class="primary scan-button" type="button" onclick="scan('behavior')">Analyse Behaviour <span>→</span></button>
+          <div id="malwareOut" class="result" aria-live="polite"></div>
+        </div>
+        <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Safe analysis</h3><p>CyberShield should analyse defensive telemetry. This interface does not execute submitted processes or binaries.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Existing scan API</b><small>/api/scan/behavior</small></aside>
+      </div>
+    </section>
+
+    <section id="learning" class="page">
+      <div class="page-intro"><div class="eyebrow">MODEL GOVERNANCE / 05</div><h2>Learning Center</h2><p>Review submitted reports and export reviewed samples. Reviews do not automatically retrain production models.</p></div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-icon amber">◷</span><span class="stat-label">Pending review</span><strong id="lPending">—</strong><small>Waiting for a decision</small></div>
+        <div class="stat-card"><span class="stat-icon green">✓</span><span class="stat-label">Confirmed threats</span><strong id="lConfirmed">—</strong><small>Marked as confirmed</small></div>
+        <div class="stat-card"><span class="stat-icon amber">◇</span><span class="stat-label">False positives</span><strong id="lFP">—</strong><small>Detection marked incorrect</small></div>
+        <div class="stat-card"><span class="stat-icon red">×</span><span class="stat-label">Rejected</span><strong id="lRejected">—</strong><small>Feedback rejected</small></div>
+      </div>
+
+      <div class="panel queue-panel">
+        <div class="panel-heading queue-toolbar">
+          <div><div class="eyebrow">HUMAN REVIEW</div><h3>Feedback review queue</h3><p>Inspect each submitted input before assigning a verdict.</p></div>
+          <button class="secondary" id="refreshLearningButton" type="button" onclick="refreshLearning()">↻ Refresh queue</button>
+        </div>
+        <div id="learningMessage" role="status" aria-live="polite"></div>
+        <div id="pendingList" class="pending-list"><div class="empty-state"><span class="loader"></span><p>Loading review queue…</p></div></div>
+      </div>
+
+      <div class="panel export-panel">
+        <div class="export-icon">⇩</div>
+        <div class="export-copy"><h3>Verified training samples</h3><p>Export confirmed-threat and false-positive records for controlled evaluation and future training.</p><small>Exporting samples does not retrain a model.</small></div>
+        <button class="primary" id="exportButton" type="button" onclick="exportVerified()">Export samples <span>→</span></button>
+      </div>
+    </section>
+
+    <footer class="app-footer"><span>CYBERSHIELD <b>·</b> DEFENSIVE AI</span><span>Local-first security workspace</span></footer>
+  </main>
+</div>
+<script src="/static/app.js" defer></script>
+</body>
+</html>

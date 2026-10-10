@@ -1,0 +1,8 @@
+services:
+  cybershield:
+    build: .
+    ports: ['5000:5000']
+    volumes: ['cybershield_data:/app/data','cybershield_models:/app/models']
+volumes:
+  cybershield_data:
+  cybershield_models:

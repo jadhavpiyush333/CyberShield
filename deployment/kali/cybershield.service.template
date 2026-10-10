@@ -1,0 +1,20 @@
+[Unit]
+Description=CyberShield AI local security service
+After=network.target
+
+[Service]
+Type=simple
+User=__RUN_USER__
+WorkingDirectory=__ROOT__
+EnvironmentFile=-__ROOT__/.env
+ExecStart=__ROOT__/.venv/bin/gunicorn --bind 127.0.0.1:5000 --workers 2 --timeout 120 app:app
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=__ROOT__/data __ROOT__/models __ROOT__/reports
+
+[Install]
+WantedBy=multi-user.target

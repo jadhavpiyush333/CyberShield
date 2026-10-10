@@ -1,0 +1,18 @@
+CyberShield AI Phase 1 release candidate
+
+Build contents:
+- Working Flask dashboard/API
+- Four defensive detector modules
+- ML training/evaluation pipeline for phishing, SMS and network baselines
+- Model registry with safe heuristic fallback
+- Grounded local advisor + ExecuTorch/Llama integration boundary
+- Kali deployment scripts and systemd template
+- Dataset, ExecuTorch, deployment and Phase 1 gate documentation
+
+Not embedded in this archive:
+- Proprietary/licensed raw datasets
+- Llama checkpoints/tokenizers
+- Actual .pte model artifact
+- ARM device benchmark results
+
+Those items must be supplied/generated under their applicable licenses and recorded as evidence before final submission.

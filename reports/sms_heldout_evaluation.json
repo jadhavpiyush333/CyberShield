@@ -1,0 +1,50 @@
+{
+  "accuracy": 0.9838565022421525,
+  "precision": 0.9395973154362416,
+  "recall": 0.9395973154362416,
+  "f1": 0.9395973154362416,
+  "false_positive_rate": 0.009316770186335404,
+  "false_negative_rate": 0.06040268456375839,
+  "confusion_matrix": [
+    [
+      957,
+      9
+    ],
+    [
+      9,
+      140
+    ]
+  ],
+  "classification_report": {
+    "0": {
+      "precision": 0.9906832298136646,
+      "recall": 0.9906832298136646,
+      "f1-score": 0.9906832298136646,
+      "support": 966.0
+    },
+    "1": {
+      "precision": 0.9395973154362416,
+      "recall": 0.9395973154362416,
+      "f1-score": 0.9395973154362416,
+      "support": 149.0
+    },
+    "accuracy": 0.9838565022421525,
+    "macro avg": {
+      "precision": 0.9651402726249532,
+      "recall": 0.9651402726249532,
+      "f1-score": 0.9651402726249532,
+      "support": 1115.0
+    },
+    "weighted avg": {
+      "precision": 0.9838565022421525,
+      "recall": 0.9838565022421525,
+      "f1-score": 0.9838565022421525,
+      "support": 1115.0
+    }
+  },
+  "samples": 1115,
+  "evaluation": "held-out split matching train.py",
+  "train_samples": 4459,
+  "test_samples": 1115,
+  "split_seed": 42
+}

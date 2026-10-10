@@ -1,0 +1,106 @@
+{
+  "dataset": "UNSW-NB15",
+  "training_file": "UNSW_NB15_training-set.csv",
+  "test_file": "UNSW_NB15_testing-set.csv",
+  "training_samples": 175341,
+  "test_samples": 82332,
+  "features_used": [
+    "dur",
+    "proto",
+    "service",
+    "state",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "dbytes",
+    "rate",
+    "sttl",
+    "dttl",
+    "sload",
+    "dload",
+    "sloss",
+    "dloss",
+    "sinpkt",
+    "dinpkt",
+    "sjit",
+    "djit",
+    "swin",
+    "stcpb",
+    "dtcpb",
+    "dwin",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "smean",
+    "dmean",
+    "trans_depth",
+    "res_bdy_len",
+    "ct_srv_src",
+    "ct_state_ttl",
+    "ct_dst_ltm",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "ct_dst_src_ltm",
+    "is_ftp_login",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "is_sm_ips_ports"
+  ],
+  "excluded_columns": [
+    "id",
+    "attack_cat",
+    "label"
+  ],
+  "categorical_columns": [
+    "proto",
+    "service",
+    "state"
+  ],
+  "model": "StandardScaler + OneHotEncoder + LogisticRegression",
+  "class_weight": "balanced",
+  "random_state": 42,
+  "training_seconds": 15.43,
+  "accuracy": 0.8358111062527328,
+  "precision_attack": 0.8028750952018279,
+  "recall_attack": 0.9301817700520604,
+  "f1_attack": 0.8618525937129543,
+  "false_positive_rate": 0.27981081081081083,
+  "false_negative_rate": 0.06981822994793964,
+  "confusion_matrix": {
+    "true_negative": 26647,
+    "false_positive": 10353,
+    "false_negative": 3165,
+    "true_positive": 42167
+  },
+  "classification_report": {
+    "normal": {
+      "precision": 0.8938346974372736,
+      "recall": 0.7201891891891892,
+      "f1-score": 0.7976710770520266,
+      "support": 37000.0
+    },
+    "attack": {
+      "precision": 0.8028750952018279,
+      "recall": 0.9301817700520604,
+      "f1-score": 0.8618525937129543,
+      "support": 45332.0
+    },
+    "accuracy": 0.8358111062527328,
+    "macro avg": {
+      "precision": 0.8483548963195507,
+      "recall": 0.8251854796206248,
+      "f1-score": 0.8297618353824905,
+      "support": 82332.0
+    },
+    "weighted avg": {
+      "precision": 0.8437523395626049,
+      "recall": 0.8358111062527328,
+      "f1-score": 0.8330094207491696,
+      "support": 82332.0
+    }
+  },
+  "sklearn_version": "1.9.1",
+  "note": "Metrics are from the supplied held-out test file. This is a binary normal-versus-attack baseline, not a multi-class attack-family classifier."
+}
