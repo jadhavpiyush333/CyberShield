@@ -1,3 +1,4 @@
+
 # CyberShield AI — Bharat AI-SoC Phase 1
 
 CyberShield is a local, privacy-first cybersecurity assistant for phishing URLs, scam communications, network intrusion/anomaly signals and safe malware-behaviour telemetry. The detection verdict is produced by deterministic/ML components; a Llama-family model is used only for grounded explanation and remediation.
@@ -59,3 +60,6 @@ Malware functionality is limited to defensive classification of safe behavioural
 
 ## Continuous learning and UI
 The dashboard now includes URL/SMS/network/malware analysis views, user feedback, and a controlled learning queue. Feedback is stored for verification and cannot directly poison the production model. Unknown malware is deliberately not auto-executed on the host; use imported behavioural telemetry from an isolated lab.
+
+# CyberShield
+
