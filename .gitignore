@@ -10,3 +10,54 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .DS_Store
+
+# Editor and recovery files
+*.swp
+*.swo
+*~
+*.bak
+*.broken-backup
+*.indentation_backup
+*.before_split_fix
+*.before_tuned_integration
+*.phishing_detector_copy
+*.phase1-backup
+
+# Local databases and generated datasets
+*.sqlite
+*.sqlite3
+data/raw/phase2/
+data/processed/
+
+# Training and debugging logs
+reports/*debug*.log
+reports/*training*.log
+
+# Editor backups and temporary files
+*.swp
+*.swo
+*~
+*.bak
+*.broken-backup
+*.indentation_backup
+*.before_split_fix
+*.before_tuned_integration
+*.phishing_detector_copy
+*.phase1-backup
+
+# Local database
+data/cybershield.db
+
+# Raw and processed datasets
+data/raw/phase2/
+data/processed/
+
+# Large generated network models
+models/network_intrusion.joblib
+models/network_intrusion_candidate.joblib
+models/network_intrusion_tuned.joblib
+models/network_intrusion.joblib.before_split_fix
+
+# Debug logs
+reports/*debug*.log
+reports/*training*.log

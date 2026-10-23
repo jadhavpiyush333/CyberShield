@@ -27,6 +27,10 @@
       <button class="nav" data-page="sms"><span>▤</span> SMS Scanner</button>
       <button class="nav" data-page="network"><span>⌁</span> Network IDS</button>
       <button class="nav" data-page="malware"><span>⌘</span> Malware Analysis</button>
+      <button class="nav" data-page="email"><span>✉</span> Email Security</button>
+      <button class="nav" data-page="social"><span>◎</span> Social Media Scanner</button>
+      <button class="nav" data-page="qr"><span>▦</span> QR Code Scanner</button>
+      <button class="nav" data-page="apk"><span>▣</span> APK Analyzer</button>
       <button class="nav" data-page="learning"><span>◎</span> Learning Center <span class="nav-pill" id="navPending">0</span></button>
     </nav>
 
@@ -182,6 +186,83 @@
           <div id="malwareOut" class="result" aria-live="polite"></div>
         </div>
         <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Safe analysis</h3><p>CyberShield should analyse defensive telemetry. This interface does not execute submitted processes or binaries.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Existing scan API</b><small>/api/scan/behavior</small></aside>
+      </div>
+    </section>
+
+
+    <section id="email" class="page">
+      <div class="page-intro">
+        <div class="eyebrow">COMMUNICATION SAFETY / 06</div>
+        <h2>Email Security</h2>
+        <p>Inspect an email file for suspicious message content, sender indicators and links. Email attachments are not opened.</p>
+      </div>
+      <div class="scanner-layout">
+        <div class="panel scanner-panel">
+          <div class="panel-heading"><div><span class="module-icon cyan">✉</span><h3>Inspect an email</h3></div><span class="mini-badge">EMAIL ANALYSIS</span></div>
+          <label for="emailFile">Email file (.eml, maximum 1 MB)</label>
+          <input class="file-input" id="emailFile" type="file" accept=".eml,message/rfc822">
+          <div class="input-hint">The scanner processes the uploaded file locally. Do not upload messages containing secrets unless necessary.</div>
+          <button class="primary scan-button" type="button" onclick="scanUpload('email')">Analyse Email <span>→</span></button>
+          <div id="emailOut" class="result" aria-live="polite"></div>
+        </div>
+        <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Before you trust it</h3><p>Sender names and email headers can be spoofed. Verify unexpected requests through a separate trusted channel.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Static email inspection</b><small>/api/scan/email</small></aside>
+      </div>
+    </section>
+
+    <section id="social" class="page">
+      <div class="page-intro">
+        <div class="eyebrow">COMMUNICATION SAFETY / 07</div>
+        <h2>Social Media Scam Scanner</h2>
+        <p>Check copied posts, direct messages, fake job offers, giveaway messages and suspicious marketplace requests.</p>
+      </div>
+      <div class="scanner-layout">
+        <div class="panel scanner-panel">
+          <div class="panel-heading"><div><span class="module-icon violet">◎</span><h3>Inspect a post or DM</h3></div><span class="mini-badge">SCAM ANALYSIS</span></div>
+          <label for="socialInput">Post or message text</label>
+          <textarea id="socialInput" maxlength="10000" placeholder="Paste the suspicious post or direct message here..." spellcheck="true"></textarea>
+          <div class="input-hint">Do not include passwords, OTPs, private conversations or other unnecessary sensitive information.</div>
+          <button class="primary scan-button" type="button" onclick="scanSocial()">Analyse Message <span>→</span></button>
+          <div id="socialOut" class="result" aria-live="polite"></div>
+        </div>
+        <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Common warning signs</h3><p>Be cautious with urgent payment requests, guaranteed returns, prize claims and requests for OTPs or account credentials.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Text and URL analysis</b><small>/api/scan/social</small></aside>
+      </div>
+    </section>
+
+    <section id="qr" class="page">
+      <div class="page-intro">
+        <div class="eyebrow">LINK SAFETY / 08</div>
+        <h2>QR Code Scanner</h2>
+        <p>Upload an image containing a QR code. Decoded URLs are passed to the configured phishing detector.</p>
+      </div>
+      <div class="scanner-layout">
+        <div class="panel scanner-panel">
+          <div class="panel-heading"><div><span class="module-icon blue">▦</span><h3>Inspect a QR image</h3></div><span class="mini-badge">QR ANALYSIS</span></div>
+          <label for="qrFile">QR image (PNG, JPG, WEBP or BMP; maximum 10 MB)</label>
+          <input class="file-input" id="qrFile" type="file" accept=".png,.jpg,.jpeg,.webp,.bmp,image/png,image/jpeg,image/webp,image/bmp">
+          <div class="input-hint">Supported QR decoding libraries must be installed on the server. The scanner will not visit decoded links.</div>
+          <button class="primary scan-button" type="button" onclick="scanUpload('qr')">Scan QR Image <span>→</span></button>
+          <div id="qrOut" class="result" aria-live="polite"></div>
+        </div>
+        <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Preview before opening</h3><p>A QR code can conceal a malicious link. Review the destination before visiting it or entering sensitive information.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Local image decoding</b><small>/api/scan/qr</small></aside>
+      </div>
+    </section>
+
+    <section id="apk" class="page">
+      <div class="page-intro">
+        <div class="eyebrow">APPLICATION SAFETY / 09</div>
+        <h2>APK Static Analyzer</h2>
+        <p>Inspect an Android APK archive for selected permissions, embedded URLs and basic file structure without installing or executing it.</p>
+      </div>
+      <div class="scanner-layout">
+        <div class="panel scanner-panel">
+          <div class="panel-heading"><div><span class="module-icon amber">▣</span><h3>Inspect an APK</h3></div><span class="mini-badge">STATIC ANALYSIS</span></div>
+          <label for="apkFile">Android package (.apk, maximum 50 MB)</label>
+          <input class="file-input" id="apkFile" type="file" accept=".apk,application/vnd.android.package-archive">
+          <div class="input-hint">The file is inspected as an archive. It is never installed or executed. Binary Android manifests may not be fully decoded.</div>
+          <button class="primary scan-button" type="button" onclick="scanUpload('apk')">Analyse APK <span>→</span></button>
+          <div id="apkOut" class="result" aria-live="polite"></div>
+        </div>
+        <aside class="info-panel"><span class="info-symbol">ⓘ</span><h3>Static analysis has limits</h3><p>Suspicious permissions or links are indicators, not proof of malware. A clean static result does not guarantee that an app is safe.</p><div class="info-divider"></div><span class="info-label">PROCESSING</span><b>Archive inspection</b><small>/api/scan/apk</small></aside>
       </div>
     </section>
 

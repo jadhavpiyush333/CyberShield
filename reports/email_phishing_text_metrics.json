@@ -1,0 +1,45 @@
+{
+  "model": "email_phishing_text",
+  "dataset_rows": 17522,
+  "train_rows": 14017,
+  "test_rows": 3505,
+  "accuracy": 0.9851640513552068,
+  "precision": 0.9736247174076865,
+  "recall": 0.987012987012987,
+  "f1": 0.9802731411229135,
+  "false_positive_rate": 0.015938069216757743,
+  "false_negative_rate": 0.012987012987012988,
+  "confusion_matrix_tn_fp_fn_tp": [
+    2161,
+    35,
+    17,
+    1292
+  ],
+  "classification_report": {
+    "0": {
+      "precision": 0.9921946740128559,
+      "recall": 0.9840619307832422,
+      "f1-score": 0.9881115683584819,
+      "support": 2196.0
+    },
+    "1": {
+      "precision": 0.9736247174076865,
+      "recall": 0.987012987012987,
+      "f1-score": 0.9802731411229135,
+      "support": 1309.0
+    },
+    "accuracy": 0.9851640513552068,
+    "macro avg": {
+      "precision": 0.9829096957102712,
+      "recall": 0.9855374588981146,
+      "f1-score": 0.9841923547406977,
+      "support": 3505.0
+    },
+    "weighted avg": {
+      "precision": 0.9852594177514673,
+      "recall": 0.9851640513552068,
+      "f1-score": 0.9851841785578089,
+      "support": 3505.0
+    }
+  }
+}

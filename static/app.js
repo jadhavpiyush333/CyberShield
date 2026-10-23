@@ -7,6 +7,10 @@ const titles = {
   sms: "SMS & Scam Scanner",
   network: "Network Intrusion Detection",
   malware: "Malware Behaviour",
+  email: "Email Security",
+  social: "Social Media Scam Scanner",
+  qr: "QR Code Scanner",
+  apk: "APK Static Analyzer",
   learning: "Learning Center"
 };
 
@@ -214,7 +218,11 @@ async function sendFeedback() {
       url: "urlOut",
       message: "smsOut",
       network: "networkOut",
-      behavior: "malwareOut"
+      behavior: "malwareOut",
+      social: "socialOut",
+      email: "emailOut",
+      qr: "qrOut",
+      apk: "apkOut"
     }[window.last.kind];
 
     if (outputId && $(outputId)) {
@@ -230,6 +238,86 @@ async function sendFeedback() {
     alert(`Could not submit feedback: ${error.message}`);
   } finally {
     buttons.forEach((button) => { button.disabled = false; });
+  }
+}
+
+
+// Phase 2: scan copied social media content.
+async function scanSocial() {
+  const input = $("socialInput");
+  const output = $("socialOut");
+  if (!input || !output) return;
+
+  const text = input.value.trim();
+  if (!text) {
+    output.innerHTML = '<div class="result-error">Paste a post or message before scanning.</div>';
+    input.focus();
+    return;
+  }
+
+  const button = document.querySelector('[onclick="scanSocial()"]');
+  if (button) button.disabled = true;
+  output.innerHTML = '<div class="result-loading"><span class="loader"></span>Analysing message…</div>';
+
+  try {
+    const body = { text };
+    const result = await api("/api/scan/social", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+    window.last = { kind: "social", input: body, result };
+    renderScanResult(output, result);
+  } catch (error) {
+    output.innerHTML = `<div class="result-error"><strong>Scan failed</strong><p>${escapeHTML(error.message)}</p></div>`;
+  } finally {
+    if (button) button.disabled = false;
+  }
+}
+
+// Phase 2: upload an email, QR image or APK using multipart form data.
+async function scanUpload(kind) {
+  const config = {
+    email: { input: "emailFile", output: "emailOut", endpoint: "/api/scan/email", label: "email" },
+    qr: { input: "qrFile", output: "qrOut", endpoint: "/api/scan/qr", label: "QR image" },
+    apk: { input: "apkFile", output: "apkOut", endpoint: "/api/scan/apk", label: "APK" }
+  }[kind];
+
+  if (!config) return;
+
+  const input = $(config.input);
+  const output = $(config.output);
+  const file = input?.files?.[0];
+
+  if (!input || !output || !file) {
+    if (output) output.innerHTML = `<div class="result-error">Choose a ${config.label} file before scanning.</div>`;
+    return;
+  }
+
+  const button = document.querySelector(`[onclick="scanUpload('${kind}')"]`);
+  if (button) button.disabled = true;
+  output.innerHTML = '<div class="result-loading"><span class="loader"></span>Inspecting file locally…</div>';
+
+  try {
+    const form = new FormData();
+    form.append("file", file);
+
+    // Do not set Content-Type manually; the browser supplies the multipart boundary.
+    const result = await api(config.endpoint, {
+      method: "POST",
+      body: form
+    });
+
+    window.last = {
+      kind,
+      input: { filename: file.name, size_bytes: file.size },
+      result
+    };
+    renderScanResult(output, result);
+  } catch (error) {
+    output.innerHTML = `<div class="result-error"><strong>Scan failed</strong><p>${escapeHTML(error.message)}</p></div>`;
+  } finally {
+    if (button) button.disabled = false;
   }
 }
 

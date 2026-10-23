@@ -1,0 +1,98 @@
+{
+  "dataset": "UNSW-NB15",
+  "task": "binary normal-versus-attack classification",
+  "train_rows": 175341,
+  "test_rows": 82332,
+  "features": [
+    "dur",
+    "proto",
+    "service",
+    "state",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "dbytes",
+    "rate",
+    "sttl",
+    "dttl",
+    "sload",
+    "dload",
+    "sloss",
+    "dloss",
+    "sinpkt",
+    "dinpkt",
+    "sjit",
+    "djit",
+    "swin",
+    "stcpb",
+    "dtcpb",
+    "dwin",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "smean",
+    "dmean",
+    "trans_depth",
+    "response_body_len",
+    "ct_srv_src",
+    "ct_state_ttl",
+    "ct_dst_ltm",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "ct_dst_src_ltm",
+    "is_ftp_login",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "is_sm_ips_ports"
+  ],
+  "excluded_columns": [
+    "attack_cat",
+    "id",
+    "label"
+  ],
+  "label_mapping": {
+    "0": "normal",
+    "1": "attack"
+  },
+  "accuracy": 0.8713015595394258,
+  "precision_attack": 0.8170268691588785,
+  "recall_attack": 0.9873819818229947,
+  "f1_attack": 0.8941627711854249,
+  "false_positive_rate": 0.2709189189189189,
+  "false_negative_rate": 0.012618018177005206,
+  "confusion_matrix": {
+    "tn": 26976,
+    "fp": 10024,
+    "fn": 572,
+    "tp": 44760
+  },
+  "classification_report": {
+    "normal": {
+      "precision": 0.9792362421954407,
+      "recall": 0.729081081081081,
+      "f1-score": 0.8358430935118052,
+      "support": 37000.0
+    },
+    "attack": {
+      "precision": 0.8170268691588785,
+      "recall": 0.9873819818229947,
+      "f1-score": 0.8941627711854249,
+      "support": 45332.0
+    },
+    "accuracy": 0.8713015595394258,
+    "macro avg": {
+      "precision": 0.8981315556771596,
+      "recall": 0.8582315314520379,
+      "f1-score": 0.865002932348615,
+      "support": 82332.0
+    },
+    "weighted avg": {
+      "precision": 0.8899237598253605,
+      "recall": 0.8713015595394258,
+      "f1-score": 0.8679539086055782,
+      "support": 82332.0
+    }
+  }
+}

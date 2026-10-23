@@ -1,0 +1,10 @@
+{'test_rows': 82332, 'accuracy': 0.8713015595394258, 'precision_attack': 0.8170268691588785, 'recall_attack': 0.9873819818229947, 'f1_attack': 0.8941627711854249, 'false_positive_rate': np.float64(0.2709189189189189), 'false_negative_rate': np.float64(0.012618018177005206), 'TN': 26976, 'FP': 10024, 'FN': 572, 'TP': 44760}
+
+              precision    recall  f1-score   support
+
+      Normal       0.98      0.73      0.84     37000
+      Attack       0.82      0.99      0.89     45332
+
+    accuracy                           0.87     82332
+   macro avg       0.90      0.86      0.87     82332
+weighted avg       0.89      0.87      0.87     82332

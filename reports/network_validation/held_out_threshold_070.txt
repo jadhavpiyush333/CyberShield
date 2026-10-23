@@ -1,0 +1,9 @@
+Threshold: 0.7
+Rows: 82332
+Accuracy: 0.910399
+Precision: 0.890652
+Recall: 0.954447
+F1: 0.921447
+FPR: 0.143568
+FNR: 0.045553
+TN=31688, FP=5312, FN=2065, TP=43267

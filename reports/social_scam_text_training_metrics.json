@@ -1,0 +1,49 @@
+{
+  "module": "social_scam_text",
+  "dataset_rows_after_cleaning": 74070,
+  "train_rows": 59256,
+  "test_rows": 14814,
+  "class_counts_0_legitimate_1_malicious": {
+    "0": 51456,
+    "1": 22614
+  },
+  "accuracy": 0.9424193330633185,
+  "precision": 0.8563106796116505,
+  "recall": 0.9750165819146585,
+  "f1": 0.9118163961542438,
+  "false_positive_rate": 0.07190749198328637,
+  "false_negative_rate": 0.024983418085341588,
+  "confusion_matrix_tn_fp_fn_tp": [
+    9551,
+    740,
+    113,
+    4410
+  ],
+  "classification_report": {
+    "0": {
+      "precision": 0.988307119205298,
+      "recall": 0.9280925080167136,
+      "f1-score": 0.9572538210974693,
+      "support": 10291.0
+    },
+    "1": {
+      "precision": 0.8563106796116505,
+      "recall": 0.9750165819146585,
+      "f1-score": 0.9118163961542438,
+      "support": 4523.0
+    },
+    "accuracy": 0.9424193330633185,
+    "macro avg": {
+      "precision": 0.9223088994084743,
+      "recall": 0.951554544965686,
+      "f1-score": 0.9345351086258565,
+      "support": 14814.0
+    },
+    "weighted avg": {
+      "precision": 0.9480060596479827,
+      "recall": 0.9424193330633185,
+      "f1-score": 0.9433808986580059,
+      "support": 14814.0
+    }
+  }
+}
